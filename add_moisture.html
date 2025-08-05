@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Moisture Data</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <h3 class="text-center mb-4">Add Moisture Reading</h3>
+  <form id="moistureForm" class="card p-4 shadow-sm">
+   <input type="number" step="any" name="device_id" placeholder="Device id" class="form-control mb-3" required> 
+   <input type="number" step="any" name="moisture_percentage" placeholder="Moisture %" class="form-control mb-3" required>
+<input type="number" step="any" name="moisture_min" placeholder="Moisture Min %" class="form-control mb-3" required>
+<input type="number" step="any" name="moisture_max" placeholder="Moisture Max %" class="form-control mb-3" required>
+<input type="number" step="any" name="moisture_avg" placeholder="Moisture Avg %" class="form-control mb-3" required>
+<input type="number" step="any" name="temperature" placeholder="Temperature °C" class="form-control mb-3" required>
+<input type="text" step="any" name="gauge_status" placeholder="gaugestatus" class="form-control mb-3" required>
+
+    <div class="d-flex justify-content-between">
+      <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script>
+document.getElementById('moistureForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const response = await fetch('insert_data.php', {
+    method: 'POST',
+    body: formData
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    alert("Data added successfully!");
+    window.location.href = "index.html"; // Redirect to dashboard
+  } else {
+    alert("Error: " + result.error);
+  }
+});
+</script>
+
+</body>
+</html>

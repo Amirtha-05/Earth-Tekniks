@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Diagnostic Reading</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body { background-color: #f8f9fa; }
+    .form-container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="form-container">
+    <h3 class="text-center mb-4">Add Diagnostic Reading</h3>
+    <form action="insert_diagnostics.php" method="POST">
+
+      <div class="mb-3">
+        <label for="device_id" class="form-label">Device ID</label>
+        <input type="number" name="device_id" class="form-control" required placeholder="enter device id">
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3"><label>+5 Volt</label><input type="text" name="volt_5" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>+15 Volt</label><input type="text" name="volt_15" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>-15 Volt</label><input type="text" name="volt_neg_15" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>-5 Volt</label><input type="text" name="volt_neg_5" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>+3.3 Volt</label><input type="text" name="volt_3_3" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>Mains Frequency</label><input type="text" name="mains_frequency" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>Lamp Voltage</label><input type="text" name="lamp_voltage" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>Lamp Current</label><input type="text" name="lamp_current" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>Lamp Status</label><input type="text" name="lamp_status" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>Gauge Temperature</label><input type="text" name="gauge_temperature" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>PWM Output</label><input type="text" name="pwm_output" class="form-control" required></div>
+        <div class="col-md-6 mb-3"><label>Wheel Frequency</label><input type="text" name="wheel_frequency" class="form-control" required></div>
+      </div>
+
+       <div class="d-flex justify-content-between">
+      <a href="diagnostics.php" class="btn btn-secondary">← Back to Dashboard</a>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
